@@ -180,19 +180,22 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 
 /* ═══ SCENE 4 — GALLERY ═══ */
 #s4{background:linear-gradient(180deg,var(--deep),var(--mid))}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:240px 180px;gap:2px;max-width:780px;width:100%;margin:0 auto;}
-.g-slot{position:relative;overflow:hidden;background:var(--deep);cursor:pointer;border:1px solid rgba(139,56,212,.15);transition:border-color .4s;}
-.g-slot:first-child{grid-column:span 2}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;max-width:780px;width:100%;margin:0 auto;}
+.g-slot{position:relative;overflow:hidden;background:#080112;cursor:pointer;border:1px solid rgba(139,56,212,.15);transition:border-color .4s;}
+/* Photo 1 — full width, portrait, contain so whole image visible */
+.g-slot:first-child{grid-column:1/-1;background:#080112;}
+.g-slot:first-child img{width:100%;height:auto;max-height:90vh;object-fit:contain;object-position:center top;display:block;}
+/* Photos 2-6 — square crop, cover */
+.g-slot:not(:first-child){min-height:170px;}
+.g-slot:not(:first-child) img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
 .g-slot:hover{border-color:var(--violet)}
-.g-slot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.16,1,.3,1)}
-.g-slot:hover img{transform:scale(1.06)}
-.g-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,1,10,.85),transparent 55%);opacity:0;transition:opacity .4s;display:flex;align-items:flex-end;justify-content:center;padding-bottom:1.2rem;}
+.g-slot img{transition:transform .7s cubic-bezier(.16,1,.3,1);opacity:0}
+.g-slot:hover img{transform:scale(1.04)}
+.g-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,1,10,.7),transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none;}
 .g-slot:hover .g-overlay{opacity:1}
-.g-rm{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.15em;color:var(--mist);background:transparent;border:1px solid rgba(184,122,232,.5);padding:5px 14px;cursor:pointer;text-transform:uppercase;transition:all .3s}
-.g-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:14px;color:var(--t4);transition:color .3s}
-.g-slot:hover .g-empty{color:var(--lavender)}
-.g-icon{font-size:1.6rem;opacity:.5}
-.g-lbl{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+.g-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;min-height:170px;gap:14px;color:var(--t4);}
+.g-icon{font-size:1.6rem;opacity:.4}
+.g-lbl{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.2em;text-transform:uppercase;opacity:.6}
 .g-slot input{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:3}
 #lb{display:none;position:fixed;inset:0;background:rgba(4,1,10,.96);z-index:9990;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem}
 #lb.open{display:flex}
@@ -379,9 +382,9 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
   .u-cell:nth-child(even){border-right:1px solid rgba(139,56,212,.12)}
   .u-cell:nth-child(3){border-bottom:1px solid rgba(139,56,212,.12)}
   .u-cell:nth-child(4){border-bottom:none}
-  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto}
-  .g-slot:first-child{grid-column:span 2;min-height:160px}
-  .g-slot{min-height:110px}
+  .gallery{grid-template-columns:1fr 1fr;}
+  .g-slot:first-child{grid-column:1/-1;}
+  .g-slot:not(:first-child){min-height:130px;}
   .letter{padding:2rem 1.2rem 1.5rem}
   .l-dear{font-size:2rem}
   .l-stamp{display:none}
@@ -589,9 +592,13 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
       <div class="l-stamp">💜</div>
       <span class="l-date" id="letterDate">13 · July · 2026 &nbsp;·&nbsp; For Afiya, with love</span>
       <span class="l-dear">Dear Afiya,</span>
-      <div class="l-body-text" id="letterBody">🥳Happy Birthday!🥳Wishing you joy and success always.Tumi ekhon officially aro ek bochor boro,but tumar cuteness ekhono ekdom baby-level😊Always keep smiling....jdio tumi bolo, 'Eto hashle dath pore jaibo😁' You came unknowingly,but will remain forever🤍</div>
+      <div class="l-body-text" id="letterBody">এখানে তোমার চিঠি লেখো।
+
+এই অংশটা HTML ফাইলে খুঁজে নাও এবং তোমার মনের কথাগুলো লিখে দাও। এই লেখাটা সরিয়ে তোমার নিজের কথা লিখলেই হবে।
+
+Afiya কে যা বলতে চাও সব এখানে থাকবে — চিরকালের জন্য। 💜</div>
       <div class="l-rule"></div>
-      <span class="l-sign" id="letterSign">— Nobita (Eugene)</span>
+      <span class="l-sign" id="letterSign">— তোমার নাম এখানে লেখো</span>
       <span class="l-borahae">보라해 · I purple you · 💜</span>
     </div>
   </div>
@@ -1032,27 +1039,36 @@ function tickCD(){
 }
 tickCD();setInterval(tickCD,1000);
 
-/* ════ GALLERY ════ */
-const PHOTOS=['photos/photo1.jpg','photos/photo2.jpg','photos/photo3.jpg','photos/photo4.jpg','photos/photo5.jpg','photos/photo6.jpg'];
-const manualPhotos=Array(6).fill(null);
+/* ════ GALLERY — view only, photos from photos/ folder ════ */
+const PHOTOS=[
+  'photos/photo1.jpg','photos/photo2.jpg','photos/photo3.jpg',
+  'photos/photo4.jpg','photos/photo5.jpg','photos/photo6.jpg'
+];
 function buildGallery(){
   const g=document.getElementById('gallery');g.innerHTML='';
   PHOTOS.forEach((path,i)=>{
     const s=document.createElement('div');s.className='g-slot';
-    const img=document.createElement('img');img.alt='Afiya';
-    img.style.cssText='width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .5s,transform .7s cubic-bezier(.16,1,.3,1)';
-    img.src=manualPhotos[i]||path;
-    const em=document.createElement('div');em.className='g-empty';em.style.display='flex';
-    em.innerHTML=`<div class="g-icon">📷</div><span class="g-lbl">Tap to add photo</span>`;
-    img.onload=()=>{em.style.display='none';img.style.opacity='1';};
-    img.onerror=()=>{img.style.display='none';em.style.display='flex';};
-    img.onclick=()=>{if(img.style.display!=='none'&&img.src){document.getElementById('lbImg').src=img.src;document.getElementById('lb').classList.add('open');}};
+    /* overlay for hover effect */
     const ov=document.createElement('div');ov.className='g-overlay';
-    const rm=document.createElement('button');rm.className='g-rm';rm.textContent='✕ remove';rm.onclick=e=>{e.stopPropagation();manualPhotos[i]=null;buildGallery();};ov.appendChild(rm);
-    const inp=document.createElement('input');inp.type='file';inp.accept='image/*';
-    inp.style.cssText='position:absolute;inset:0;opacity:0;cursor:pointer;z-index:3';
-    inp.onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{manualPhotos[i]=ev.target.result;buildGallery();};r.readAsDataURL(f);};
-    s.appendChild(img);s.appendChild(ov);s.appendChild(em);s.appendChild(inp);g.appendChild(s);
+    s.appendChild(ov);
+
+    const img=document.createElement('img');img.alt='Afiya';img.src=path;
+    img.onload=()=>{img.style.opacity='1';};
+    img.onerror=()=>{
+      img.style.display='none';
+      const em=document.createElement('div');em.className='g-empty';
+      em.innerHTML=`<div class="g-icon">📷</div><span class="g-lbl">Photo ${i+1}</span>`;
+      s.appendChild(em);
+    };
+    /* click → lightbox */
+    s.addEventListener('click',()=>{
+      if(img.style.display!=='none'&&img.complete&&img.naturalWidth){
+        document.getElementById('lbImg').src=img.src;
+        document.getElementById('lb').classList.add('open');
+      }
+    });
+    s.appendChild(img);
+    g.appendChild(s);
   });
 }
 buildGallery();
