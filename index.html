@@ -74,7 +74,7 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .scroll-cue-mouse{width:20px;height:32px;border:1px solid var(--t4);border-radius:10px;display:flex;justify-content:center;padding-top:5px}
 .scroll-cue-wheel{width:1px;height:7px;background:var(--lavender);border-radius:1px;animation:wheelScroll 1.8s ease infinite}
 @keyframes wheelScroll{0%,100%{transform:translateY(0);opacity:1}75%{transform:translateY(10px);opacity:0}}
-.scroll-cue-text{font-family:'Cinzel',serif;font-size:7px;letter-spacing:.4em;color:var(--t4);text-transform:uppercase}
+.scroll-cue-text{font-family:'Cinzel',serif;font-size:7px;letter-spacing:.6em;color:var(--t8);text-transform:uppercase;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 
 /* ═══ SCENE 2 — COUNTDOWN ═══ */
@@ -332,7 +332,7 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .wish-send:hover{background:rgba(90,31,168,.5);color:#fff}
 .wish-count{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.2em;color:var(--t4);text-align:center;margin-bottom:1.4rem;}
 /* View all modal */
-.view-wishes-btn{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.35em;color:var(--lavender);background:transparent;border:1px solid rgba(139,56,212,.3);padding:12px 28px;cursor:pointer;text-transform:uppercase;transition:all .3s;margin-top:.5rem;display:inline-block;}
+.view-wishes-btn{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.35em;color:var(--lavender);background:rgba(180, 13, 202, 0.438);border:1px solid rgba(139,56,212,.3);padding:12px 28px;cursor:pointer;text-transform:uppercase;transition:all .3s;margin-top:.5rem;display:inline-block;}
 .view-wishes-btn:hover{background:rgba(42,10,98,.5);color:#fff;border-color:var(--lavender)}
 .wish-sent-msg{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--petal);text-align:center;margin-bottom:.8rem;min-height:1.5rem;transition:opacity .4s;}
 #wishModal{display:none;position:fixed;inset:0;background:rgba(4,1,10,.95);z-index:9985;align-items:center;justify-content:center;padding:2rem;}
@@ -661,7 +661,7 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
       <div class="l-rule"></div>
       <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
         <img src="photos/letter.gif" alt="" style="width:72px;height:72px;object-fit:contain;border-radius:4px;opacity:.9;" onerror="this.style.display='none'"/>
-        <span class="l-sign" id="letterSign">—Nobia (Eugene)</span>
+        <span class="l-sign" id="letterSign">—Nobia(Eugene)</span>
       </div>
     </div>
   </div>
@@ -693,8 +693,8 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
   <h2 class="section-title r d1">BTS <em>Playlist</em></h2>
   <div class="section-kr r d2">그녀를 위한 플레이리스트</div>
   <p class="r d3" style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:.3em;color:var(--violet);text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;justify-content:center;gap:12px;">
-    <span style="flex:1;max-width:70px;height:1px;background:linear-gradient(to right,transparent,rgba(139,56,212,.4))"></span>
-    🎵 Enjoy this playlist 💜
+    <span  style="flex:1;max-width:70px;height:1px;background:linear-gradient(to right,transparent,rgba(139,56,212,.4))"></span>
+    <span class="member-hint">🎵 Enjoy this playlist 💜</span>
     <span style="flex:1;max-width:70px;height:1px;background:linear-gradient(to left,transparent,rgba(139,56,212,.4))"></span>
   </p>
   <div class="songs-grid r d4" id="songsGrid"></div>
@@ -707,7 +707,7 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 <section class="sec" id="s8" style="min-height:auto;padding:5.5rem 2rem">
   <span class="section-label r">⭐ 소원을 말해봐</span>
   <h2 class="section-title r d1">Birthday <em>Wishes</em></h2>
-  <div class="section-kr r d2">Drop your birthday wishes for Afiya here! 💜</div>
+  <div class="section-kr r d2 member-hint">Drop your birthday wishes for Afiya here! 💜</div>
   <div class="wish-wrap">
     <div class="wish-form r d3">
       <input class="wish-name-inp" id="wishName" type="text" placeholder="Your name" maxlength="30"/>
